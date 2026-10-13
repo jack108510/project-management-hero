@@ -11,6 +11,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body { font-family: 'Inter', sans-serif; background: transparent; }
+    #hero-video { filter: url(#orange-hills); }
     @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
     .word-group { display: inline-block; opacity: 0; animation: fadeUp .65s ease-out forwards; }
     .nav-fade { opacity: 0; animation: fadeUp .7s ease-out .05s forwards; }
@@ -24,8 +25,15 @@
   </style>
 </head>
 <body class="bg-transparent text-gray-900">
+  <svg width="0" height="0" class="absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <filter id="orange-hills" color-interpolation-filters="sRGB">
+        <feColorMatrix type="matrix" values="0.25 1.5 -0.75 0 0  0.2 0.6 0.2 0 0  0.25 -0.5 1.25 0 0  0 0 0 1 0"/>
+      </filter>
+    </defs>
+  </svg>
   <div class="fixed inset-0 w-full h-full z-[-1] overflow-hidden bg-[#eef1f0]">
-    <video class="w-full h-full object-cover" autoplay loop muted playsinline aria-hidden="true">
+    <video id="hero-video" class="w-full h-full object-cover" autoplay loop muted playsinline aria-hidden="true">
       <source src="https://cdn.sceneai.art/Hero%20Section%20Video/aa476a86-3c53-4229-b946-84f699108e53.mp4" type="video/mp4">
     </video>
   </div>
